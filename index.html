@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+
+    <!-- Roboto Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Section -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="grid-container">
+      <!-- Header -->
+      <header class="header">
+        <div class="menu-icon" onclick="openSidebar(); focusOnSidebar();">
+          <span class="material-icons-outlined"> menu </span>
+        </div>
+
+        <div class="header-left">
+          <form action="/search" method="GET">
+            <div class="search-container">
+              <input
+                type="text"
+                id="searchQuery"
+                name="search"
+                placeholder="Enter your search"
+              />
+              <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+          </form>
+        </div>
+        <div class="header-right">
+          <span class="material-icons-outlined"> notifications </span>
+          <span class="material-icons-outlined"> mail </span>
+          <span class="material-icons-outlined"> account_circle </span>
+        </div>
+      </header>
+      <!-- End Header -->
+
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <span class="material-icons-outlined"> inventory </span> Client
+            Inventory
+            <span
+              class="material-icons-outlined"
+              id="close-icon"
+              onclick="closeSidebar()"
+            >
+              close
+            </span>
+          </div>
+        </div>
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined"> dashboard </span> Dashboard
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined"> inventory_2 </span> Products
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined"> check </span> Inventory
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined"> add_shopping_cart </span>
+            Purchase Orders
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined"> shopping_cart </span> Side
+            Orders
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined"> poll </span> Reports
+          </li>
+          <li class="sidebar-list-item">
+            <span class="material-icons-outlined"> settings </span> Settings
+          </li>
+        </ul>
+      </aside>
+      <!-- End Sidebar -->
+
+      <!-- Main -->
+      <main class="main-container">
+        <div class="main-title">
+          <p class="font-weight-bold">DASHBOARD</p>
+        </div>
+        <div class="main-cards">
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">PRODUCTS</p>
+              <span class="material-icons-outlined text-blue">
+                inventory_2
+              </span>
+            </div>
+            <span class="text-primary font-weight-bold">249</span>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">PURCHASE CARDS</p>
+              <span class="material-icons-outlined text-orange">
+                add_shopping_cart
+              </span>
+            </div>
+            <span class="text-primary font-weight-bold">83</span>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">SALES ORDERS</p>
+              <span class="material-icons-outlined text-green">
+                shopping_cart
+              </span>
+            </div>
+            <span class="text-primary font-weight-bold">79</span>
+          </div>
+
+          <div class="card">
+            <div class="card-inner">
+              <p class="text-primary">INVENTORY ALERTS</p>
+              <span class="material-icons-outlined text-red">
+                notification_important
+              </span>
+            </div>
+            <span class="text-primary font-weight-bold">56</span>
+          </div>
+        </div>
+
+        <div class="charts">
+          <div class="charts-card">
+            <p class="chart-title">Top 5 Products</p>
+            <div id="bar-chart"></div>
+          </div>
+
+          <div class="charts">
+            <div class="charts-card">
+              <p class="chart-title">Top 5 Products</p>
+              <canvas id="bar-chart2"></canvas>
+            </div>
+
+          <div class="charts-card">
+            <p class="chart-title">Purchase and Sales Orders</p>
+            <div id="area-chart"></div>
+          </div>
+        </div>
+      </main>
+      <!-- End Main -->
+    </div>
+  </body>
+
+  <!-- ApexCharts -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.44.1/apexcharts.min.js"
+    integrity="sha512-WHo2Eg23N0LUrkhx6YARZTlZX0t5fGnj8TR8c1/4f9cbxm8shrLV7GQlyuxBCtNA6kssq0DUcihcrmn1/F2H3Q=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <!-- Chart.js -->
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- JavaScript Links -->
+  <script type="module" src="js/script.js"></script>
+  <script type="module" src="js/data.js"></script>
+</html>
